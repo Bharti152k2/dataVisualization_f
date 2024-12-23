@@ -93,8 +93,8 @@ function Signin() {
     >
       {/* Left Section */}
       <Grid
-        item
-        xs={12}
+        container
+        // xs={12}
         md={6}
         sx={{
           display: "flex",
@@ -114,14 +114,15 @@ function Signin() {
 
       {/* Right Section */}
       <Grid
-        item
-        xs={12}
+        container
+        // xs={12}
         md={6}
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           padding: 3,
+          border: "2px solid purple",
         }}
       >
         <Box
@@ -132,6 +133,7 @@ function Signin() {
             padding: 4,
             borderRadius: 2,
             backgroundColor: "#fff",
+            border: "2px solid green",
           }}
           onSubmit={handleSubmit}
         >

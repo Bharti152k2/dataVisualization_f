@@ -97,6 +97,7 @@ function Signup() {
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         height: "100vh",
+        
       }}
     >
       {/* Left Section */}
