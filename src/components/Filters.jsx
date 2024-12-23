@@ -1,29 +1,17 @@
-import React, { useState } from "react";
-import {
-  Button,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Grid,
-  Box,
-  Tooltip,
-} from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Button, Select, MenuItem, Grid, Tooltip } from "@mui/material";
 import axios from "axios";
-import { DatePicker, Typography } from "antd"; // Import Ant Design DatePicker
-// import "antd/dist/antd.css"; // Import Ant Design styles
+import { DatePicker, Typography } from "antd";
+const { RangePicker } = DatePicker;
 
-const { RangePicker } = DatePicker; // Destructure RangePicker from DatePicker
-
-function Filters({ onApplyFilters }) {
+function Filters({ setChartData }) {
   // State for filters
   const [ageGroup, setAgeGroup] = useState("");
   const [gender, setGender] = useState("");
   const [dateRange, setDateRange] = useState([null, null]); // Start and End dates in a range
 
   // State for storing the chart data
-  const [chartData, setChartData] = useState(null);
-
+  // const [chartData, setChartData] = useState(null);
   // Fetch data based on filters
   const getChartsData = async () => {
     try {
@@ -45,7 +33,6 @@ function Filters({ onApplyFilters }) {
       });
       console.log("Fetched data:", response.data.data);
       setChartData(response.data.data);
-      onApplyFilters(response.data);
     } catch (error) {
       console.error("Error fetching chart data:", error);
     }
@@ -59,6 +46,7 @@ function Filters({ onApplyFilters }) {
       width="100%"
       p={2}
       height="100%"
+      gap="10%"
     >
       <Typography>Filters</Typography>
       <Grid item width="100%">
@@ -66,16 +54,19 @@ function Filters({ onApplyFilters }) {
           value={dateRange}
           onChange={(dates) => setDateRange(dates)}
           format="YYYY/MM/DD"
-          width="100%"
+          style={{ width: "100%", height: "170%" }}
         />
       </Grid>
       <Grid item width="100%">
         <Select
           value={ageGroup}
           onChange={(e) => setAgeGroup(e.target.value)}
-          label="AgeGroup"
-          width="100%"
+          displayEmpty
+          style={{ width: "100%", marginTop: "26px" }}
         >
+          <MenuItem value="" disabled>
+            Select AgeGroup
+          </MenuItem>
           <MenuItem value="15-25">15-25</MenuItem>
           <MenuItem value=">25">greater than 25</MenuItem>
         </Select>
@@ -84,9 +75,12 @@ function Filters({ onApplyFilters }) {
         <Select
           value={gender}
           onChange={(e) => setGender(e.target.value)}
-          label="Gender"
-          width="100%"
+          style={{ width: "100%" }}
+          displayEmpty
         >
+          <MenuItem value="" disabled>
+            Select Gender
+          </MenuItem>
           <MenuItem value="Male">Male</MenuItem>
           <MenuItem value="Female">Female</MenuItem>
         </Select>

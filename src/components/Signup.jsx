@@ -16,7 +16,6 @@ import { inputData } from "../helper/signupFields.js"; // Adjust as per your fil
 import { signupValidationSchema } from "../helper/signupValidations.js";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
 function Signup() {
   //! STATES
   const [signupData, setSignupData] = useState({
@@ -97,46 +96,74 @@ function Signup() {
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         height: "100vh",
-        
+        background: `url('./src/assets/k2.webp'),linear-gradient(135deg, #e3f2fd, #f5f5f5)`,
+        backgroundPosition: "right",
+        backgroundRepeat: "no-repeat",
+        boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
       }}
     >
       {/* Left Section */}
       <Grid
-        item
-        xs={12}
-        md={6}
+        container
         sx={{
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#f5f5f5",
-          padding: 3,
+          padding: 4,
         }}
       >
+        {/* Welcome Message */}
         <Typography
           variant="h4"
-          sx={{ textAlign: "center", color: "primary.main" }}
+          sx={{
+            textAlign: "center",
+            color: "primary.main",
+            fontWeight: "bold",
+            marginBottom: 2,
+          }}
         >
           Welcome to Our Platform!
+        </Typography>
+
+        {/* Description */}
+        <Typography
+          variant="body1"
+          sx={{
+            textAlign: "center",
+            color: "text.secondary",
+            marginBottom: 3,
+          }}
+        >
+          Dive into interactive data visualization and advanced analytics tools!
+        </Typography>
+
+        {/* Optional Call-to-Action */}
+        <Typography
+          variant="subtitle1"
+          sx={{
+            textAlign: "center",
+            color: "text.primary",
+            fontStyle: "italic",
+          }}
+        >
+          Get started today and explore the power of data!
         </Typography>
       </Grid>
 
       {/* Right Section */}
       <Grid
-        item
-        xs={12}
-        md={6}
+        container
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: 3,
         }}
       >
         <Box
           component="form"
           sx={{
-            width: { xs: "100%", sm: "80%", md: "70%" },
+            width: { xs: "100%", sm: "80%", md: "60%" },
             boxShadow: 3,
             padding: 4,
             borderRadius: 2,
@@ -144,12 +171,24 @@ function Signup() {
           }}
           onSubmit={handleSubmit}
         >
-          <Typography variant="h5" gutterBottom>
+          <Typography
+            variant="h5"
+            gutterBottom
+            sx={{ color: "rgb(26, 116, 241)" }}
+          >
             Create a New Account
           </Typography>
 
-          {successMsg && <Alert severity="success">{successMsg}</Alert>}
-          {errorMsg && <Alert severity="error">{errorMsg}</Alert>}
+          {successMsg && (
+            <Alert severity="success" sx={{ m: 2 }}>
+              {successMsg}
+            </Alert>
+          )}
+          {errorMsg && (
+            <Alert severity="error" sx={{ m: 2 }}>
+              {errorMsg}
+            </Alert>
+          )}
 
           <Grid container spacing={2}>
             {inputData.map(({ id, type, placeholder, name }) => (
@@ -163,7 +202,7 @@ function Signup() {
                   onChange={handleChange}
                   onBlur={({ target: { name, value } }) =>
                     validateField(name, value)
-                  } // Validate on blur
+                  }
                   error={!!formErrors[name]}
                   helperText={formErrors[name]}
                 />

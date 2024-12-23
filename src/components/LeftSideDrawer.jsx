@@ -12,12 +12,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 function LeftSideDrawer() {
   const menuItems = [
     { label: "Dashboard", path: "/dashboard" },
-    { label: "Reports",
-         },
+    { label: "Reports" },
     { label: "Analytics" },
-    { label: "Users", },
-    { label: "Settings",  },
-    { label: "Help"},
+    { label: "Users" },
+    { label: "Settings" },
+    { label: "Help" },
   ];
 
   const location = useLocation(); // Get current location
@@ -27,10 +26,10 @@ function LeftSideDrawer() {
     <Box
       sx={{
         height: "100vh",
-        backgroundColor: "#2C3E50", // Dark blue background
+        backgroundColor: "rgb(211, 231, 244)", // Dark blue background
         color: "#ECF0F1", // Light text color
-        padding: "16px",    
-        boxShadow: "2px 0 5px rgba(0, 0, 0, 0.2)", // Shadow for drawer
+        padding: "16px",
+        // boxShadow: "2px 0 5px rgba(0, 0, 0, 0.2)", // Shadow for drawer
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -39,12 +38,11 @@ function LeftSideDrawer() {
       {/* Logo Section */}
       <Typography
         variant="h5"
-        // component="div"
         sx={{
           fontWeight: "bold",
           textAlign: "center",
-        //   marginBottom: "12px",
-          padding:"40px 5px 0px 5px "
+          padding: "40px 5px 0px 5px ",
+          color: "orange",
         }}
       >
         DataVision
@@ -61,9 +59,11 @@ function LeftSideDrawer() {
               borderRadius: "8px",
               cursor: "pointer",
               backgroundColor:
-                location.pathname === item.path ? "#1ABC9C" : "inherit", // Highlight active item
+                location.pathname === item.path
+                  ? "rgb(253, 196, 144)"
+                  : "inherit", // Highlight active item
               "&:hover": {
-                backgroundColor: "#34495E", // Slightly darker on hover
+                backgroundColor: "rgb(253, 196, 144)", // Slightly darker on hover
               },
             }}
           >
@@ -71,8 +71,9 @@ function LeftSideDrawer() {
               primary={item.label}
               primaryTypographyProps={{
                 fontSize: "16px",
+
                 fontWeight: "medium",
-                color: location.pathname === item.path ? "#fff" : "#ECF0F1",
+                color: location.pathname === item.path ? "#fff" : "#000",
               }}
             />
           </ListItem>
@@ -85,7 +86,7 @@ function LeftSideDrawer() {
         sx={{
           textAlign: "center",
           fontSize: "12px",
-          color: "#BDC3C7", // Light gray text for footer
+          color: "#BD73C9", // Light gray text for footer
         }}
       >
         © 2024 DataVision

@@ -5,6 +5,7 @@ import Filters from "./Filters";
 import Charts from "./Charts";
 
 function DashboardCharts() {
+  const [chartData, setChartData] = useState(null);
   return (
     <Box m={2} height="100%" sx={{ display: "flex" }}>
       <Grid
@@ -15,7 +16,7 @@ function DashboardCharts() {
         p={2}
         height="100%"
       >
-        <Charts />
+        <Charts chartData={chartData} />
       </Grid>
       <Grid
         container
@@ -25,7 +26,7 @@ function DashboardCharts() {
         p={2}
         height="100%"
       >
-        <Filters />
+        <Filters setChartData={setChartData} />
       </Grid>
     </Box>
   );

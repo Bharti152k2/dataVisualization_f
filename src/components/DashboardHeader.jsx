@@ -33,13 +33,14 @@ function DashboardHeader() {
         onClick={() => setProfileClicked(!profileClicked)}
         // onBlur={() => setProfileClicked(false)}
         style={{
-          border: "2px solid green",
+          border: "2px solid rgb(164, 188, 238)",
           borderRadius: "100%",
           width: isSmallScreen ? "30px" : "40px",
           height: isSmallScreen ? "30px" : "40px ",
           fontSize: isSmallScreen ? "14px" : "16px",
           fontWeight: "bold",
-          backgroundColor: "#f0f0f0",
+          backgroundColor: "orange",
+          color: "rgb(40, 95, 214)",
           cursor: "pointer",
         }}
       >
@@ -54,7 +55,8 @@ function DashboardHeader() {
             top: isSmallScreen ? "50px" : "70px",
             right: "20px",
             width: isSmallScreen ? "160px" : "200px",
-            backgroundColor: "#fff",
+            backgroundColor: "rgb(255, 241, 233)",
+            border: "2px solid orange",
             borderRadius: "8px",
             boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
             zIndex: 1000,
