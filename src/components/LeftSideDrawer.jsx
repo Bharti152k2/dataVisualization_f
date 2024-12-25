@@ -6,6 +6,7 @@ import {
   Typography,
   Box,
 } from "@mui/material";
+import { purple } from "@mui/material/colors";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -26,10 +27,8 @@ function LeftSideDrawer() {
     <Box
       sx={{
         height: "100vh",
-        backgroundColor: "rgb(211, 231, 244)", // Dark blue background
-        color: "#ECF0F1", // Light text color
+        background: "linear-gradient(to top,rgb(17, 0, 255),rgb(200, 0, 255))",
         padding: "16px",
-        // boxShadow: "2px 0 5px rgba(0, 0, 0, 0.2)", // Shadow for drawer
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -37,12 +36,13 @@ function LeftSideDrawer() {
     >
       {/* Logo Section */}
       <Typography
-        variant="h5"
+        variant="h4"
         sx={{
           fontWeight: "bold",
           textAlign: "center",
-          padding: "40px 5px 0px 5px ",
-          color: "orange",
+          padding: "30px 5px 0px 5px ",
+          letterSpacing: "2px",
+          color: "white",
         }}
       >
         DataVision
@@ -59,11 +59,9 @@ function LeftSideDrawer() {
               borderRadius: "8px",
               cursor: "pointer",
               backgroundColor:
-                location.pathname === item.path
-                  ? "rgb(253, 196, 144)"
-                  : "inherit", // Highlight active item
+                location.pathname === item.path ? "primary.main" : "inherit", // Highlight active item
               "&:hover": {
-                backgroundColor: "rgb(253, 196, 144)", // Slightly darker on hover
+                backgroundColor: "primary.main",
               },
             }}
           >
@@ -73,7 +71,7 @@ function LeftSideDrawer() {
                 fontSize: "16px",
 
                 fontWeight: "medium",
-                color: location.pathname === item.path ? "#fff" : "#000",
+                color: location.pathname === item.path && "#fff",
               }}
             />
           </ListItem>
@@ -86,7 +84,7 @@ function LeftSideDrawer() {
         sx={{
           textAlign: "center",
           fontSize: "12px",
-          color: "#BD73C9", // Light gray text for footer
+          color: "warning.main", // Light gray text for footer
         }}
       >
         © 2024 DataVision

@@ -6,6 +6,7 @@ import Charts from "./Charts";
 
 function DashboardCharts() {
   const [chartData, setChartData] = useState(null);
+  console.log(chartData, "chartsdata");
   return (
     <Box m={2} height="100%" sx={{ display: "flex" }}>
       <Grid

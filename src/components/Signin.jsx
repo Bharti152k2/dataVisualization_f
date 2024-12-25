@@ -82,17 +82,15 @@ function Signin() {
     }
   };
 
-  //! JSX
   return (
     <Box
       sx={{
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         height: "100vh",
-        background: `url('./src/assets/k2.webp'),linear-gradient(135deg, #e3f2fd, #f5f5f5)`,
-        backgroundPosition: "right",
+        background: `url('./src/assets/b1.jpg')`,
+        backgroundSize: "100% 100%",
         backgroundRepeat: "no-repeat",
-        boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
       }}
     >
       {/* Left Section */}
@@ -111,7 +109,7 @@ function Signin() {
           variant="h4"
           sx={{
             textAlign: "center",
-            color: "primary.main",
+            color: "primary.contrastText",
             fontWeight: "bold",
             marginBottom: 2,
           }}
@@ -124,19 +122,18 @@ function Signin() {
           variant="body1"
           sx={{
             textAlign: "center",
-            color: "text.secondary",
+            color: "warning.light",
             marginBottom: 3,
           }}
         >
           Dive into interactive data visualization and advanced analytics tools!
         </Typography>
 
-        {/* Optional Call-to-Action */}
         <Typography
           variant="subtitle1"
           sx={{
             textAlign: "center",
-            color: "text.primary",
+            color: "primary.contrastText",
             fontStyle: "italic",
           }}
         >
@@ -158,18 +155,15 @@ function Signin() {
           component="form"
           sx={{
             width: { xs: "100%", sm: "80%", md: "60%" },
-            boxShadow: 3,
+            // boxShadow: 3,
             padding: 4,
             borderRadius: 2,
             backgroundColor: "#fff",
+            boxShadow: "1px 1px 5px rgba(248, 206, 253, 0.89)",
           }}
           onSubmit={handleSubmit}
         >
-          <Typography
-            variant="h5"
-            gutterBottom
-            sx={{ color: "rgb(26, 116, 241)" }}
-          >
+          <Typography variant="h5" gutterBottom sx={{ color: "success.main" }}>
             Login to Your Account
           </Typography>
 
@@ -195,7 +189,7 @@ function Signin() {
                 onChange={handleChange}
                 onBlur={({ target: { name, value } }) =>
                   validateField(name, value)
-                } // Validate on blur
+                }
                 error={!!fieldErrors.username}
                 helperText={fieldErrors.username}
               />
@@ -211,7 +205,7 @@ function Signin() {
                 onChange={handleChange}
                 onBlur={({ target: { name, value } }) =>
                   validateField(name, value)
-                } // Validate on blur
+                }
                 error={!!fieldErrors.password}
                 helperText={fieldErrors.password}
               />
@@ -222,7 +216,7 @@ function Signin() {
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ marginTop: 3 }}
+            sx={{ marginTop: 3, backgroundColor: "success.main" }}
           >
             Login
           </Button>
@@ -231,7 +225,10 @@ function Signin() {
             variant="body2"
             sx={{ marginTop: 2, textAlign: "center" }}
           >
-            Don't have an account? <a href="/signup">Sign up here</a>
+            Don't have an account?{" "}
+            <a href="/signup" style={{ textDecoration: "none", color: "blue" }}>
+              Sign up here
+            </a>
           </Typography>
         </Box>
       </Grid>

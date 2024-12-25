@@ -12,6 +12,7 @@ import {
   Title,
 } from "chart.js";
 import zoomPlugin from "chartjs-plugin-zoom";
+import { Grade } from "@mui/icons-material";
 
 ChartJS.register(
   BarElement,
@@ -112,25 +113,42 @@ function Charts({ chartData }) {
   };
 
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       {/* Render bar chart */}
       {barData ? (
         <div>
-          <h3>Bar Chart</h3>
+          <h2 style={{ color: "purple" }}>Bar Chart</h2>
           <Bar data={barData} options={barOptions} />
-          <p>Select a feature from the bar chart to view the time trend</p>
+          <p style={{fontSize:"20px"}}>
+            <span style={{ fontWeight: "bold" }}>Note:</span>Select a feature
+            from the bar chart to view the time trend
+          </p>
         </div>
       ) : (
-        <div>
-          <h3>Bar Chart</h3>
-          <div>No data available for the bar chart</div>
+        <div style={{ height: "100%" }}>
+          <h2 style={{ color: "purple" }}>Bar Chart</h2>
+          <div
+            style={{
+              height: "96%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+              fontSize: "25px",
+              boxShadow: "1px 1px 20px rgba(0,0,0,0.2)",
+              borderRadius: "10px",
+            }}
+          >
+            No data available for the bar chart <br /> Select filters to view
+            the charts
+          </div>
         </div>
       )}
 
       {/* Render line chart */}
       {lineChartData && (
-        <div>
-          <h3>Line Chart</h3>
+        <div style={{marginTop:"5%"}}>
+          <h2 style={{color:"purple"}}>Line Chart</h2>
           <Line data={lineChartData} options={lineOptions} />
         </div>
       )}

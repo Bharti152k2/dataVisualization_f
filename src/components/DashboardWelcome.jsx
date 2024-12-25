@@ -38,18 +38,17 @@ function DashboardWelcome() {
           padding: 4,
           borderRadius: "12px",
           width: "100%",
-          //   textAlign: "center",
-          backgroundColor: "#fff",
-          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+          backgroundColor: "rgb(235, 135, 240)",
+          boxShadow: "0 4px 12px rgba(71, 69, 71, 0.29)",
         }}
       >
         {/* Welcome Message */}
-        <Typography variant="h4" color="primary" gutterBottom>
+        <Typography variant="h4" color="error.main" gutterBottom>
           Welcome, {userDetails.name}
         </Typography>
 
         {/* Dashboard Introduction */}
-        <Typography variant="h6" color="textSecondary" paragraph>
+        <Typography variant="h6" color="black" paragraph>
           You're all set to explore the analytics. Let's take a look at your
           performance data and insights.
         </Typography>

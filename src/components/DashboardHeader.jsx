@@ -24,23 +24,32 @@ function DashboardHeader() {
       justifyContent="space-between"
       alignItems="center"
       p={isSmallScreen ? 1 : 2}
-      sx={{ flexWrap: "wrap" }}
+      sx={{
+        flexWrap: "wrap",
+        boxShadow: "1px 1px 10px gray",
+        backgroundColor: "info.main",
+      }}
     >
-      <Typography variant={isSmallScreen ? "h6" : "h4"}>Dashboard</Typography>
+      <Typography
+        variant={isSmallScreen ? "h6" : "h4"}
+        sx={{ color: "purple" }}
+      >
+        Dashboard
+      </Typography>
 
       {/* Profile Button */}
       <button
         onClick={() => setProfileClicked(!profileClicked)}
         // onBlur={() => setProfileClicked(false)}
         style={{
-          border: "2px solid rgb(164, 188, 238)",
+          border: "1px solid purple",
           borderRadius: "100%",
           width: isSmallScreen ? "30px" : "40px",
           height: isSmallScreen ? "30px" : "40px ",
           fontSize: isSmallScreen ? "14px" : "16px",
           fontWeight: "bold",
-          backgroundColor: "orange",
-          color: "rgb(40, 95, 214)",
+          backgroundColor: "rgb(255, 200, 251)",
+          color: "rgb(72, 40, 214)",
           cursor: "pointer",
         }}
       >
@@ -55,10 +64,9 @@ function DashboardHeader() {
             top: isSmallScreen ? "50px" : "70px",
             right: "20px",
             width: isSmallScreen ? "160px" : "200px",
-            backgroundColor: "rgb(255, 241, 233)",
-            border: "2px solid orange",
+            backgroundColor: "white",
             borderRadius: "8px",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",
             zIndex: 1000,
             padding: isSmallScreen ? "10px" : "16px",
           }}

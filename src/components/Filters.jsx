@@ -9,11 +9,17 @@ function Filters({ setChartData }) {
   const [ageGroup, setAgeGroup] = useState("");
   const [gender, setGender] = useState("");
   const [dateRange, setDateRange] = useState([null, null]); // Start and End dates in a range
-
+  const [error, setError] = useState("");
   // State for storing the chart data
   // const [chartData, setChartData] = useState(null);
   // Fetch data based on filters
   const getChartsData = async () => {
+    if (!dateRange[0] || !dateRange[1]) {
+      setError("Please select a valid date range.");
+      return;
+    } else {
+      setError("");
+    }
     try {
       const [startDate, endDate] = dateRange;
 
@@ -32,7 +38,13 @@ function Filters({ setChartData }) {
         },
       });
       console.log("Fetched data:", response.data.data);
-      setChartData(response.data.data);
+      if (!response.data.data || response.data.data.length === 0) {
+        setError("No data found for the selected filters.");
+        setChartData(null); // Clear chart data
+      } else {
+        setError("");
+        setChartData(response.data.data); // Set chart data
+      }
     } catch (error) {
       console.error("Error fetching chart data:", error);
     }
@@ -46,9 +58,10 @@ function Filters({ setChartData }) {
       width="100%"
       p={2}
       height="100%"
-      gap="10%"
+      gap="5%"
     >
-      <Typography>Filters</Typography>
+      <h3>Filters</h3>
+
       <Grid item width="100%">
         <RangePicker
           value={dateRange}
@@ -57,6 +70,9 @@ function Filters({ setChartData }) {
           style={{ width: "100%", height: "170%" }}
         />
       </Grid>
+      {error && (
+        <p style={{ color: "red", margin: "10px 0px -26px 0px" }}>{error}</p>
+      )}
       <Grid item width="100%">
         <Select
           value={ageGroup}
@@ -88,7 +104,12 @@ function Filters({ setChartData }) {
 
       <Grid item width="100%">
         <Tooltip title="Apply filters to get the Charts">
-          <Button onClick={getChartsData} variant="contained" color="primary">
+          <Button
+            onClick={getChartsData}
+            variant="contained"
+            color="primary"
+            sx={{ backgroundColor: "warning.main" }}
+          >
             Apply
           </Button>
         </Tooltip>
