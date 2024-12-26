@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Grid, Box, useTheme, useMediaQuery } from "@mui/material";
 
 import Filters from "./Filters";
-import Charts from "./Charts";
+import Charts from "./Charts.jsx";
 
 function DashboardCharts() {
   const [chartData, setChartData] = useState(null);
