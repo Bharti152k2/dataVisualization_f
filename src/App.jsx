@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Signup from "./components/signup.jsx";
-import Signin from "./components/signin.jsx";
+import Signup from "./components/Signup.jsx";
+import Signin from "./components/Signin.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import Authentication from "./components/Authentication.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
