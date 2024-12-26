@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Select, MenuItem, Grid, Tooltip } from "@mui/material";
+import { Button, Select, MenuItem, Grid, Tooltip, useMediaQuery, useTheme } from "@mui/material";
 import axios from "axios";
 import { DatePicker, Typography } from "antd";
 const { RangePicker } = DatePicker;
@@ -10,9 +10,8 @@ function Filters({ setChartData }) {
   const [gender, setGender] = useState("");
   const [dateRange, setDateRange] = useState([null, null]); // Start and End dates in a range
   const [error, setError] = useState("");
-  // State for storing the chart data
-  // const [chartData, setChartData] = useState(null);
-  // Fetch data based on filters
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const getChartsData = async () => {
     if (!dateRange[0] || !dateRange[1]) {
       setError("Please select a valid date range.");

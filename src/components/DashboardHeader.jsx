@@ -32,7 +32,7 @@ function DashboardHeader() {
     >
       <Typography
         variant={isSmallScreen ? "h6" : "h4"}
-        sx={{ color: "purple" }}
+        sx={{ color: "purple", marginLeft: isSmallScreen ? "2.2rem" : "0" }}
       >
         Dashboard
       </Typography>

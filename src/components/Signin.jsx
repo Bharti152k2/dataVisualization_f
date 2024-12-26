@@ -155,7 +155,6 @@ function Signin() {
           component="form"
           sx={{
             width: { xs: "100%", sm: "80%", md: "60%" },
-            // boxShadow: 3,
             padding: 4,
             borderRadius: 2,
             backgroundColor: "#fff",

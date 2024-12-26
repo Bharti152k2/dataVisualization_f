@@ -5,6 +5,8 @@ import {
   ListItemText,
   Typography,
   Box,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { purple } from "@mui/material/colors";
 import React from "react";
@@ -22,7 +24,8 @@ function LeftSideDrawer() {
 
   const location = useLocation(); // Get current location
   const navigate = useNavigate(); // Navigate to different pages
-
+    const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box
       sx={{
@@ -36,7 +39,7 @@ function LeftSideDrawer() {
     >
       {/* Logo Section */}
       <Typography
-        variant="h4"
+        variant={isSmallScreen ? "h5" : "h4"}
         sx={{
           fontWeight: "bold",
           textAlign: "center",

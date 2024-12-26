@@ -1,13 +1,25 @@
-import { Grid } from "@mui/material";
-import React from "react";
+import {
+  Drawer,
+  Grid,
+  IconButton,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import React, { useState } from "react";
 import DashboardHeader from "./DashboardHeader";
 import DashboardWelcome from "./DashboardWelcome";
-// import Filters from "./Filters";
+import MenuIcon from "@mui/icons-material/Menu";
 import LeftSideDrawer from "./LeftSideDrawer";
 import DashboardCharts from "./DashboardCharts";
 
 function Dashboard() {
-  // Dashboard page with left side drawer and right side of page contains header, welcome card, and charts with filters
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = (open) => () => {
+    setDrawerOpen(open);
+  };
   return (
     <Grid
       container
@@ -15,28 +27,47 @@ function Dashboard() {
       flexDirection="row"
       style={{ width: "100%" }}
     >
-      <Grid
-        item
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "17%",
-          height: "100vh",
-          backgroundColor: "#f4f4f4",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <LeftSideDrawer />
-      </Grid>
+      {isMobile ? (
+        <>
+          {/* Menu Icon */}
+          <IconButton
+            style={{ position: "absolute", top: 5, left: 5 }}
+            onClick={toggleDrawer(true)}
+          >
+            <MenuIcon />
+          </IconButton>
+          {/* Drawer */}
+          <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
+            <LeftSideDrawer />
+          </Drawer>
+        </>
+      ) : (
+        <Grid
+          item
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "17%",
+            height: "100vh",
+            backgroundColor: "#f4f4f4",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <LeftSideDrawer />
+        </Grid>
+      )}
       <Grid
         item
         display="flex"
         flexDirection="column"
+        xs={12}
+        sm={10}
+        md={10}
         style={{
-          marginLeft: "17%",
-          width: "83%",
+          marginLeft: isMobile ? 0 : "17%",
+          width: isMobile ? "100%" : "83%",
         }}
       >
         <Grid item>

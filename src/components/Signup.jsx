@@ -97,11 +97,59 @@ function Signup() {
         flexDirection: { xs: "column", md: "row" },
         height: "100vh",
         background: `url('./src/assets/b1.jpg')`,
-        backgroundSize: "100%",
+        backgroundSize: "100% 100%",
         backgroundRepeat: "no-repeat",
       }}
     >
       {/* Left Section */}
+      <Grid
+        container
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: 4,
+        }}
+      >
+        {/* Welcome Message */}
+        <Typography
+          variant="h4"
+          sx={{
+            textAlign: "center",
+            color: "primary.contrastText",
+            fontWeight: "bold",
+            marginBottom: 2,
+          }}
+        >
+          Welcome to Our Platform!
+        </Typography>
+
+        {/* Description */}
+        <Typography
+          variant="body1"
+          sx={{
+            textAlign: "center",
+            color: "warning.light",
+            marginBottom: 3,
+          }}
+        >
+          Dive into interactive data visualization and advanced analytics tools!
+        </Typography>
+
+        {/* Optional Call-to-Action */}
+        <Typography
+          variant="subtitle1"
+          sx={{
+            textAlign: "center",
+            color: "primary.contrastText",
+            fontStyle: "italic",
+          }}
+        >
+          Get started today and explore the power of data!
+        </Typography>
+      </Grid>
+      {/* Right Section */}
       <Grid
         container
         sx={{
@@ -113,8 +161,8 @@ function Signup() {
         <Box
           component="form"
           sx={{
-            width: { xs: "100%", sm: "80%", md: "60%" },
-            boxShadow: 3,
+            width: { xs: "100%", sm: "60%", md: "80%" },
+            // boxShadow: 3,
             padding: 4,
             borderRadius: 2,
             backgroundColor: "#fff",
@@ -199,59 +247,11 @@ function Signup() {
             sx={{ marginTop: 2, textAlign: "center" }}
           >
             Already have an account?{" "}
-            <a href="/login" style={{ textDecoration: "none",color:"blue" }}>
+            <a href="/login" style={{ textDecoration: "none", color: "blue" }}>
               Login here
             </a>
           </Typography>
         </Box>
-      </Grid>
-      {/* Right Section */}
-      <Grid
-        container
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: 4,
-        }}
-      >
-        {/* Welcome Message */}
-        <Typography
-          variant="h4"
-          sx={{
-            textAlign: "center",
-            color: "primary.contrastText",
-            fontWeight: "bold",
-            marginBottom: 2,
-          }}
-        >
-          Welcome to Our Platform!
-        </Typography>
-
-        {/* Description */}
-        <Typography
-          variant="body1"
-          sx={{
-            textAlign: "center",
-            color: "warning.light",
-            marginBottom: 3,
-          }}
-        >
-          Dive into interactive data visualization and advanced analytics tools!
-        </Typography>
-
-        {/* Optional Call-to-Action */}
-        <Typography
-          variant="subtitle1"
-          sx={{
-            textAlign: "center",
-            color: "primary.contrastText",
-            fontStyle: "italic",
-          }}
-        >
-          Get started today and explore the power of data!
-        </Typography>
       </Grid>
     </Box>
   );
