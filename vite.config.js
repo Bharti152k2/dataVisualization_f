@@ -10,14 +10,4 @@ export default defineConfig({
       input: "./src/main.jsx", // Ensure this is correct
     },
   },
-  // build: {
-  //   rollupOptions: {
-  //     output: {
-  //       manualChunks: {
-  //         vendor: ["react", "react-dom"],
-  //         charts: ["./src/components/charts.jsx"],
-  //       },
-  //     },
-  //   },
-  // },
 });
