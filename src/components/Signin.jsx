@@ -63,7 +63,7 @@ function Signin() {
         navigateToHome("/dashboard");
       }, 2000);
     } catch (validationError) {
-      console.log(validationError);
+      // console.log(validationError);
       setSuccessMsg("");
       if (validationError.inner) {
         // Map Yup errors to the fieldErrors state

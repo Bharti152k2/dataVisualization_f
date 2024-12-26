@@ -47,7 +47,7 @@ function Filters({ setChartData }) {
           },
         }
       );
-      console.log("Fetched data:", response.data.data);
+      // console.log("Fetched data:", response.data.data);
       if (!response.data.data || response.data.data.length === 0) {
         setError("No data found for the selected filters.");
         setChartData(null); // Clear chart data

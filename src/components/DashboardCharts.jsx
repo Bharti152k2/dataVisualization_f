@@ -8,7 +8,7 @@ function DashboardCharts() {
   const [chartData, setChartData] = useState(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  console.log(chartData, "chartsdata");
+  // console.log(chartData, "chartsdata");
   return (
     <Box m={2} height="100%" sx={{ display: "flex" }}>
       {isMobile ? (
