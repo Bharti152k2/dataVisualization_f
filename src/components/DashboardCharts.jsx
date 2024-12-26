@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Grid, Box, useTheme, useMediaQuery } from "@mui/material";
 
 import Filters from "./Filters";
-import Charts from "./Charts.jsx";
+// import Charts from "./Charts";
+const Charts = React.lazy(() => import("./charts"));
 
 function DashboardCharts() {
   const [chartData, setChartData] = useState(null);
