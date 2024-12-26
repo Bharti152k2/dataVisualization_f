@@ -19,7 +19,7 @@ function DashboardCharts() {
             flexDirection="column"
             // width="25%"
             p={2}
-            height="38%"
+            height="50%"
           >
             <Filters setChartData={setChartData} />
           </Grid>
