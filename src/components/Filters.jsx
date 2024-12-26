@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Button, Select, MenuItem, Grid, Tooltip, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Button,
+  Select,
+  MenuItem,
+  Grid,
+  Tooltip,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import axios from "axios";
 import { DatePicker, Typography } from "antd";
 const { RangePicker } = DatePicker;
@@ -28,14 +36,17 @@ function Filters({ setChartData }) {
         : null;
       const formattedEndDate = endDate ? endDate.format("DD/MM/YYYY") : null;
 
-      const response = await axios.get(`http://localhost:4000/api/data`, {
-        params: {
-          ageGroup,
-          gender,
-          startDate: formattedStartDate, // Convert to ISO string
-          endDate: formattedEndDate, // Convert to ISO string
-        },
-      });
+      const response = await axios.get(
+        `https://data-visualization-b.vercel.app/api/data`,
+        {
+          params: {
+            ageGroup,
+            gender,
+            startDate: formattedStartDate, // Convert to ISO string
+            endDate: formattedEndDate, // Convert to ISO string
+          },
+        }
+      );
       console.log("Fetched data:", response.data.data);
       if (!response.data.data || response.data.data.length === 0) {
         setError("No data found for the selected filters.");

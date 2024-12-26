@@ -63,7 +63,7 @@ function Signup() {
       setFormErrors({}); // Clear errors if validation passes
       setErrorMsg("");
       const { data } = await axios.post(
-        `http://localhost:3000/api/signup`,
+        `https://data-visualization-b.vercel.app/api/signup`,
         signupData
       );
       setSuccessMsg(data.message);
