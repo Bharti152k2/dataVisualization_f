@@ -37,7 +37,7 @@ function Filters({ setChartData }) {
       const formattedEndDate = endDate ? endDate.format("DD/MM/YYYY") : null;
 
       const response = await axios.get(
-        `https://data-visualization-b.vercel.app/api/data`,
+        `https://datavisualization-b.onrender.com/api/data`,
         {
           params: {
             ageGroup,

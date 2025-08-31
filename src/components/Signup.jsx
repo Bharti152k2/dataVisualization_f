@@ -63,9 +63,10 @@ function Signup() {
       setFormErrors({}); // Clear errors if validation passes
       setErrorMsg("");
       const { data } = await axios.post(
-        `https://data-visualization-b.vercel.app/api/signup`,
+        `https://datavisualization-b.onrender.com/api/signup`,
         signupData
       );
+
       setSuccessMsg(data.message);
 
       setTimeout(() => {
